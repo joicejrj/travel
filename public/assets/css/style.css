@@ -1,0 +1,220 @@
+body {
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#f5f7fa;
+  color:#333;
+}
+.main-header {
+  background:#1f3c88;
+  color:#fff;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.main-header .brand { font-weight:700; font-size:18px; }
+.main-header nav a {
+  color:#fff;
+  text-decoration:none;
+  margin-left:15px;
+  font-size:14px;
+}
+.main-header nav a:hover { text-decoration:underline; }
+
+.content { padding:20px; }
+
+.flash { background:#e0ffe3; border:1px solid #95d49a; padding:10px; margin-bottom:15px; }
+.error { background:#ffe3e3; border:1px solid #d49595; padding:10px; margin:10px 0; }
+
+.login-page { display:flex; align-items:center; justify-content:center; height:100vh; }
+.login-box { background:#fff; padding:30px; border-radius:10px; width:320px; box-shadow:0 5px 18px rgba(0,0,0,.08);}
+.login-box h2 { margin-top:0; }
+.login-box input { width:93%; padding:8px; margin-bottom:10px; }
+.login-box button { width:100%; padding:10px; background:#1f3c88; color:#fff; border:none; cursor:pointer; }
+
+.listing { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 2px 4px rgba(0,0,0,0.05); }
+.listing th, .listing td { border:1px solid #ddd; padding:6px 8px; font-size:13px; }
+.listing th { background:#f0f3f8; text-align:left; }
+.listing tr:hover { background:#f9fcff; }
+
+.listing.small td, .listing.small th { font-size:12px; }
+
+button { cursor:pointer; border-radius:4px; border:1px solid #1f3c88; background:#1f3c88; color:#fff; padding:5px 10px; }
+button[disabled] { background:#ccc; border-color:#bbb; cursor:not-allowed; }
+
+.form { background:#fff; padding:20px; max-width:500px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.08); }
+.form label { display:block; margin-top:10px; font-weight:600; }
+.form input[type=text], .form input[type=date], .form input[type=number], .form select, .form textarea {
+  width:100%; padding:8px; margin-top:4px; border:1px solid #ccc; border-radius:4px; font-size:14px;
+}
+.form textarea { min-height:90px; resize:vertical; }
+.form button { margin-top:15px; width:100%; }
+
+.availTable { width:100%; border-collapse:collapse; background:#fff; }
+.availTable th, .availTable td { border:1px solid #ddd; font-size:12px; padding:4px; text-align:center; }
+.availTable th { background:#f0f2f5; }
+.cell.avail { background:#d8ffe0; font-weight:bold; }
+.cell.not-avail { background:#ffeaea; }
+.cell { cursor:pointer; transition:background .2s; }
+.cell:hover { filter:brightness(0.95); }
+
+.modal { display:none; position:fixed; z-index:999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.4); }
+.modal-content { background:#fff; margin:60px auto; padding:20px; border-radius:10px; width:700px; max-width:95%; position:relative; }
+.modal-content h3 { margin-top:0; }
+.modal .close { position:absolute; right:15px; top:10px; cursor:pointer; font-size:20px; }
+
+.footer { text-align:center; padding:15px; font-size:12px; color:#777; }
+
+.dashboard-panels section { margin-bottom:30px; }
+
+/* ---------- Nav Shell ---------- */
+.main-header .nav {
+  position: relative;
+}
+
+/* Layout */
+.main-header .nav .menu {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links */
+.main-header .nav a,
+.main-header .nav .submenu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #e2e8f0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Hover/Focus */
+.main-header .nav a:hover,
+.main-header .nav a:focus,
+.main-header .nav .submenu-toggle:hover,
+.main-header .nav .submenu-toggle:focus {
+  background: rgba(255,255,255,0.08);
+  outline: none;
+}
+
+/* Submenu wrapper */
+.menu-item.has-submenu {
+  position: relative;
+}
+
+/* Submenu panel */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #0b1224;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  padding: 8px;
+  list-style: none;
+  display: none;
+  z-index: 50;
+}
+.submenu li a {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+.submenu li a:hover,
+.submenu li a:focus {
+  background: rgba(255,255,255,0.08);
+  color: #e2e8f0;
+}
+
+/* Show submenu on hover (desktop) */
+.menu-item.has-submenu:hover > .submenu {
+  display: block;
+}
+
+/* Logout spacing */
+.menu-item.logout a {
+  margin-left: 4px;
+  background: #172036;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ---------- Mobile ---------- */
+.nav-toggle {
+  display: none;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  background: #172036;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+.nav-toggle .nav-toggle-bar {
+  width: 18px;
+  height: 2px;
+  background: #e2e8f0;
+  display: inline-block;
+}
+.menu-item.has-submenu.open > .submenu { display: block; }
+.menu-item.has-submenu > .submenu::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: -10px;           /* sits above the panel */
+  height: 12px;         /* buffer zone */
+  background: transparent;
+  /* this element belongs to the submenu, so hovering it still counts as "inside" */
+}
+@media (max-width: 960px) {
+  .nav-toggle { display: inline-flex; }
+  .main-header .nav .menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    margin-top: 10px;
+    background: #0b1224;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 8px;
+    border-radius: 14px;
+  }
+  .main-header .nav .menu.is-open { display: flex; }
+  .menu-item.has-submenu .submenu {
+    position: static;
+    display: none;
+    margin-top: 4px;
+  }
+  .menu-item.has-submenu.open > .submenu { display: block; }
+}
+
+@media (max-width:800px){
+  .listing, .availTable { font-size:11px; }
+  .modal-content { width:95%; }
+}
+
+
+.table a {
+  text-decoration: none !important;
+}
+
+.jselect-button {
+  padding: 0.2em 0.4em !important;
+  margin: 0.15em !important;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content='IE=edge'>
+    <title>Mail</title>
+    <meta name=viewport content='width=device-width, initial-scale=1'>
+    <style>
+        * {
+            font-family: 'Roboto', Arial, Helvetica, sans-serif
+        }
+
+        .mail-wrapper {
+            min-width: 500px;
+            max-width: 600px;
+            margin: 10px auto;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 50px 80px;
+            border-radius: 5px;
+            line-height: 27px;
+            font-size: 17px;
+        }
+
+        .container1 {
+            background-color: #fff;
+            padding-bottom: 20px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            line-height: 27px;
+            font-size: 17px;
+        }
+        .container2 {
+            background-color: #fff;
+            padding-top: 0px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            line-height: 27px;
+            font-size: 17px;
+        }
+
+
+        .container strong {
+            color: #555
+        }
+
+        .container div {
+            width: 100%
+        }
+
+        .container .row {
+            border-bottom: 2px solid rgb(235, 234, 234);
+            padding: 20px 0;
+        }
+
+        h2 {
+            border: 2px dotted #f1f1f1;
+            padding: 10px;
+            color: #a8a8a8;
+
+            letter-spacing: 10px
+        }
+
+        .applink {
+            font-weight: 500
+        }
+
+        hr {
+            opacity: .3
+        }
+
+        .logo {
+            margin-bottom: 30px
+        }
+
+        .logo img {
+            width: 50px
+        }
+
+        .header h1 {
+            font-size: 29px;
+            line-height: 110%;
+        }
+
+        .header h1 {
+            color: #142227;
+            margin-bottom: 0px;
+            margin-top: 50px;
+        }
+
+        .header img {
+            max-width: 200px;
+            opacity: 0.8;
+        }
+        .icon{
+            float: left;
+            font-size: 25px;
+            margin-top: 10px;
+        }
+        .icon+div {
+            padding-left: 50px;
+            width: auto;
+        }
+        .footer {
+            margin-top: 50px;
+            color: #777;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .button{
+            color: #0dc36b;
+            text-decoration: none;
+        }
+
+        table{
+            width: 100%;
+            text-align: left;
+            font-size: 13px;
+            line-height: 130%;
+        }
+        th{
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .buttonPay {
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            border-radius: 4px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-decoration: none;
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+        }
+    </style>
+</head>
+
+<body style=background-color:rgba(231,235,245,0.8)>
+    <div class=mail-wrapper>
+        <div class="container container1">
+            <div class=logo style="font-size: 20px; font-style: italic;">CRM</div>
+            <div class=header>
+                <h3>[subject]</h3>
+            </div>
+        </div>
+        <div class="container container2" style="padding-top: 0px;">
+            [content]
+        </div>
+            <!-- <p class="footer">Email: [office_email] &nbsp;&nbsp;|&nbsp;&nbsp;   Phone: [office_phone]</p> -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+.jselect-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 1em;
+}
+.jselect-button {
+	padding: 0.5em 1em;
+	margin: 0.25em;
+	border-radius: 6px;
+	border: 1px solid lightgrey;
+	cursor: pointer;
+	user-select: none;
+	transition: background 0.2s, color 0.2s;
+}
+.jselect-disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+.jselect-hidden {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
