@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Holiday Package Landing Page</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --soft: #f8fafc;
+      --muted: #64748b;
+      --card: rgba(255,255,255,0.88);
+      --border: rgba(255,255,255,0.25);
+      --shadow: 0 20px 60px rgba(2, 6, 23, 0.18);
+      --radius: 24px;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: var(--primary);
+    }
+
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(30, 41, 59, 0.70)),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 40px;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.18), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.08), transparent 25%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      color: rgba(255,255,255,0.88);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      max-width: 650px;
+      margin-bottom: 26px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-point {
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-premium {
+      padding: 14px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: all 0.25s ease;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      border: none;
+      color: #1f2937;
+      box-shadow: 0 10px 24px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-light-glass {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-light-glass:hover {
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-trust {
+      margin-top: 22px;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.95rem;
+    }
+
+    .enquiry-card {
+      position: relative;
+      z-index: 2;
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .enquiry-card h3 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .enquiry-card .subtext {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 7px;
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: 14px;
+      padding: 13px 14px;
+      border: 1px solid #dbe4ee;
+      background: rgba(255,255,255,0.96);
+      box-shadow: none;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.15);
+    }
+
+    .trust-strip {
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+      margin-top: -50px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .trust-item {
+      padding: 24px 18px;
+      text-align: center;
+      height: 100%;
+    }
+
+    .trust-icon {
+      width: 58px;
+      height: 58px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #fff7ed, #fffbeb);
+      color: #d97706;
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    .section-space {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .feature-card {
+      background: #fff;
+      border: 1px solid #eef2f7;
+      border-radius: 22px;
+      padding: 26px;
+      height: 100%;
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.05);
+      transition: all 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fef3c7, #fff7ed);
+      color: #b45309;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h5 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .details-box {
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      border: 1px solid #eef2f7;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .details-list li {
+      margin-bottom: 12px;
+      color: #475569;
+    }
+
+    .cta-band {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #fff;
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+    }
+
+    .floating-mobile-cta {
+      position: fixed;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      z-index: 999;
+      display: none;
+    }
+
+    .floating-mobile-cta .inner {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 16px 36px rgba(2, 6, 23, 0.35);
+      padding: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .small-meta {
+      color: #94a3b8;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 991.98px) {
+      .hero-section {
+        min-height: auto;
+        padding-top: 50px;
+      }
+
+      .trust-strip {
+        margin-top: 24px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .floating-mobile-cta {
+        display: block;
+      }
+
+      .section-space {
+        padding: 60px 0;
+      }
+
+      .cta-band {
+        padding: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="eyebrow">
+            <i class="bi bi-stars"></i>
+            Premium Holiday Packages
+          </div>
+
+          <h1 class="hero-title">Turn Travel Interest Into Real Holiday Bookings</h1>
+
+          <p class="hero-subtitle">
+            Give your customers a premium enquiry experience with a simple form, clear call-to-action,
+            and a design that encourages more people to ask for pricing, availability, and package details.
+          </p>
+
+          <div class="hero-points">
+            <span class="hero-point"><i class="bi bi-check2-circle me-2"></i>Fast Follow-Up</span>
+            <span class="hero-point"><i class="bi bi-check2-circle me-2"></i>Family & Group Friendly</span>
+            <span class="hero-point"><i class="bi bi-check2-circle me-2"></i>Easy To Enquire</span>
+            <span class="hero-point"><i class="bi bi-check2-circle me-2"></i>High Conversion Layout</span>
+          </div>
+
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-premium btn-gold" onclick="setInquiryMode('Book Now'); scrollToForm();">
+              <i class="bi bi-calendar-check me-2"></i>Book Now
+            </button>
+
+            <button class="btn btn-premium btn-light-glass" onclick="setInquiryMode('Get More Details'); scrollToForm();">
+              <i class="bi bi-info-circle me-2"></i>Get More Details
+            </button>
+          </div>
+
+          <div class="hero-trust">
+            <i class="bi bi-shield-check me-2"></i>
+            Trusted travel assistance • Quick response • Personal support before booking
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="enquiry-card" id="enquiryFormCard">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 id="formHeading">Plan Your Holiday</h3>
+                <p class="subtext mb-0" id="formSubheading">
+                  Complete the form and our travel team will contact you with the best available options.
+                </p>
+              </div>
+              <span class="badge text-bg-warning rounded-pill px-3 py-2">Hot Offer</span>
+            </div>
+
+            <form action="#" method="post" class="mt-4">
+              <input type="hidden" name="inquiry_type" id="inquiryType" value="General Enquiry">
+
+              <div class="mb-3">
+                <label class="form-label">Customer Name</label>
+                <input type="text" class="form-control" name="customer_name" placeholder="Enter full name" required>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control" name="email" placeholder="Enter email" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" name="phone" placeholder="Enter phone number" required>
+                </div>
+              </div>
+
+              <div class="row g-3 mt-1">
+                <div class="col-md-6">
+                  <label class="form-label">Preferred Travel Date</label>
+                  <input type="date" class="form-control" name="travel_date" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Destination</label>
+                  <input type="text" class="form-control" name="destination" placeholder="e.g. Dubai, Maldives">
+                </div>
+              </div>
+
+              <div class="row g-3 mt-1">
+                <div class="col-md-4">
+                  <label class="form-label">Adults</label>
+                  <select class="form-select" name="adults" required>
+                    <option value="">Select</option>
+                    <option>1</option>
+                    <option selected>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5+</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="form-label">Children</label>
+                  <select class="form-select" name="children">
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4+</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="form-label">Nights</label>
+                  <select class="form-select" name="nights">
+                    <option value="">Select</option>
+                    <option>2 Nights</option>
+                    <option>3 Nights</option>
+                    <option>4 Nights</option>
+                    <option>5 Nights</option>
+                    <option>6+ Nights</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3 mt-3">
+                <label class="form-label">Anything specific?</label>
+                <textarea class="form-control" name="message" rows="3" placeholder="Tell us your budget, hotel preference, departure city, or any special request"></textarea>
+              </div>
+
+              <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-premium btn-gold py-3" id="submitButton">
+                  Send Enquiry
+                </button>
+              </div>
+
+              <div class="text-center mt-3 small-meta">
+                No obligation enquiry. A quick response improves booking chances.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="container">
+    <div class="trust-strip">
+      <div class="row g-0">
+        <div class="col-md-4 border-end">
+          <div class="trust-item">
+            <div class="trust-icon"><i class="bi bi-lightning-charge"></i></div>
+            <h5 class="fw-bold">Quick Response</h5>
+            <p class="text-secondary mb-0">Responding quickly to customer interest increases conversion into real bookings.</p>
+          </div>
+        </div>
+        <div class="col-md-4 border-end">
+          <div class="trust-item">
+            <div class="trust-icon"><i class="bi bi-person-hearts"></i></div>
+            <h5 class="fw-bold">Human Assistance</h5>
+            <p class="text-secondary mb-0">Customers prefer guidance from a real travel advisor before they confirm a trip.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="trust-item">
+            <div class="trust-icon"><i class="bi bi-hand-thumbs-up"></i></div>
+            <h5 class="fw-bold">Simple Enquiry Flow</h5>
+            <p class="text-secondary mb-0">A short form with clear choices makes more visitors complete the enquiry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY THIS DESIGN WORKS -->
+  <section class="section-space">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Why This Layout Helps You Win More Enquiries</h2>
+        <p>
+          The page is designed to reduce hesitation, create trust, and push the visitor toward
+          either booking or requesting more information.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-cursor-fill"></i></div>
+            <h5>Strong First Action</h5>
+            <p>Two clear buttons help the customer decide quickly without feeling pressured.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-ui-checks-grid"></i></div>
+            <h5>Short Premium Form</h5>
+            <p>Only the most important details are asked, which improves completion rate.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-stars"></i></div>
+            <h5>Modern Feel</h5>
+            <p>A cleaner luxury-style look makes the offer feel more valuable and more trustworthy.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h5>Built For Conversion</h5>
+            <p>Trust points, good spacing, and clear CTA placement help generate business leads.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="pb-5">
+    <div class="container">
+      <div class="details-box">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h2 class="fw-bold mb-3">Give Just Enough Detail To Trigger Enquiries</h2>
+            <p class="text-secondary">
+              Rather than showing too much information, keep the page attractive and informative.
+              Let the customer ask for pricing, hotel choices, and exact package inclusions.
+            </p>
+
+            <ul class="details-list ps-3 mt-4">
+              <li>Hotel stay options can be customised based on budget and preference</li>
+              <li>Suitable for couples, families, groups, or honeymoon travellers</li>
+              <li>Add-ons such as transfers, sightseeing, and meal plans can be offered later</li>
+              <li>Seasonal rates and limited availability create urgency where applicable</li>
+              <li>Sales staff can follow up by phone, email, or WhatsApp after form submission</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="bg-white rounded-4 shadow-sm p-4 border h-100">
+              <h5 class="fw-bold mb-3">Suggested Trust Content</h5>
+              <div class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Tailor-made holiday options</div>
+              <div class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Fast quote and availability response</div>
+              <div class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Support before and after booking</div>
+              <div class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Ideal for families, couples, and groups</div>
+              <div><i class="bi bi-check-circle-fill text-warning me-2"></i>Trusted team to guide the booking process</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section-space pt-4">
+    <div class="container">
+      <div class="cta-band text-center text-lg-start">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-2">Ready to turn interest into a booking?</h2>
+            <p class="mb-0 text-white-50">
+              Let the customer choose between asking for details or booking immediately.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+              <button class="btn btn-premium btn-gold" onclick="setInquiryMode('Book Now'); scrollToForm();">
+                Book Now
+              </button>
+              <button class="btn btn-premium btn-light-glass" onclick="setInquiryMode('Get More Details'); scrollToForm();">
+                Get More Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="floating-mobile-cta">
+    <div class="inner">
+      <div class="d-flex gap-2">
+        <button class="btn btn-gold btn-premium flex-fill" onclick="setInquiryMode('Book Now'); scrollToForm();">Book Now</button>
+        <button class="btn btn-light-glass btn-premium flex-fill" onclick="setInquiryMode('Get More Details'); scrollToForm();">Details</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scrollToForm() {
+      const formCard = document.getElementById('enquiryFormCard');
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function setInquiryMode(mode) {
+      const inquiryType = document.getElementById('inquiryType');
+      const formHeading = document.getElementById('formHeading');
+      const formSubheading = document.getElementById('formSubheading');
+      const submitButton = document.getElementById('submitButton');
+
+      inquiryType.value = mode;
+
+      if (mode === 'Book Now') {
+        formHeading.textContent = 'Book Your Holiday';
+        formSubheading.textContent = 'Submit your details and our team will contact you to confirm pricing, availability, and next steps.';
+        submitButton.textContent = 'Book Now';
+      } else {
+        formHeading.textContent = 'Request More Details';
+        formSubheading.textContent = 'Submit your details and we will share more information, options, and package guidance.';
+        submitButton.textContent = 'Get More Details';
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
